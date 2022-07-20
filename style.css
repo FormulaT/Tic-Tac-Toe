@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Comic Sans MS';
+    user-select: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vmin;
+}
+
+#score-board {
+    position: absolute;
+    top: 2%;
+    border: 2px solid black;
+    width: 100%;
+    min-height: 10vmin;
+}
+#status { position: absolute; top: 27%; left: 50%; transform: translateX(-50%); }
+
+#p1 { float: left; margin-left: 4%; margin-top: 1.5%;}
+#p1-score { position: absolute; left: 7%; }
+
+#p2 { float: right; margin-right: 4%; margin-top: 1.5%;}
+#p2-score { position: absolute; right: 7%; }
+
+#grid {
+    display: grid;
+    width: 450px;
+    height: 450px;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(3, 150px);
+}
+.box {
+    border: 2px solid black;
+    cursor: pointer;
+}

@@ -10,14 +10,47 @@ window.onload = () => {
     
     document.getElementById('p1-name').innerHTML = p1;
     document.getElementById('p2-name').innerHTML = p2;
-    
-    const game = new TicTacToe(boxes, p1, p2);
 
+    const playerOne = {
+        name: p1,
+        turn: true,
+        score: 0,
+    };
+    const playerTwo = {
+        name: p2,
+        turn: false,
+        score: 0,
+    };
+    let currentStatus = playerOne.name + '\'s turn';
+
+    function checkWinner() {
+        
+    }
+    function boxClick(e) {
+        removeEventListener(e.target);
+        e.target.innerHTML = (playerOne.turn) ? 'X' : 'O';
+        checkWinner();
+        playerOne.turn = !playerOne.turn;
+        playerTwo.turn = !playerTwo.turn;
+        currentStatus = (playerTwo.turn) ? `${playerTwo.name}'s turn` : `${playerOne.name}'s turn`; 
+    }
+    function addEventListeners() {
+        boxes.forEach(box => {
+            box.innerHTML = null;
+            box.addEventListener('click', boxClick);
+        });
+    }
+    function removeEventListener(element) {
+        element.removeEventListener('click', boxClick);
+    }
     function updateGameValues() {
-        status.innerHTML = game.status;
-        playerOneScore.innerHTML = game.playerOne.score;
-        PlayerTwoScore.innerHTML = game.playerTwo.score;        
+        status.innerHTML = currentStatus;
+        playerOneScore.innerHTML = playerOne.score;
+        PlayerTwoScore.innerHTML = playerTwo.score;        
         requestAnimationFrame(updateGameValues)
     }
     updateGameValues();
+    addEventListeners();
+
+    
 }

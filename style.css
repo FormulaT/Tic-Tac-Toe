@@ -12,22 +12,23 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vmin;
-}
+    background: #fc4a1a;  /* fallback for old browsers */
+    background-color: #FAD961;
+    background-image: linear-gradient(90deg, #FAD961 0%, #F76B1C 100%);
+}    
 
 #score-board {
     position: absolute;
     top: 2%;
-    border: 2px solid black;
     width: 100%;
     min-height: 10vmin;
+    font-size: 3vmin;
 }
-#status { position: absolute; top: 27%; left: 50%; transform: translateX(-50%); }
+#status {font-size: 7vmin; position: absolute; left: 50%; transform: translateX(-50%); }
 
-#p1 { float: left; margin-left: 4%; margin-top: 1.5%;}
-#p1-score { position: absolute; left: 7%; }
+#p1 { text-align: center; font-size: 7vmin; float: left; margin-left: 4%; margin-top: 1.5%;}
 
-#p2 { float: right; margin-right: 4%; margin-top: 1.5%;}
-#p2-score { position: absolute; right: 7%; }
+#p2 {text-align: center; font-size: 7vmin; float: right; margin-right: 4%; margin-top: 1.5%;}
 
 #grid {
     display: grid;
@@ -39,4 +40,52 @@ body {
 .box {
     border: 2px solid black;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14vmin;
+    transition: 200ms;
+}
+#b0, #b1, #b2 {
+    border-top: none;
+}
+#b0, #b3, #b6 {
+    border-left: none;
+}
+#b6, #b7, #b8 {
+    border-bottom: none;
+}
+#b8, #b5, #b2 {
+    border-right: none;
+}
+
+/* Buttons */
+#buttons {
+    position: absolute;
+    right: 3%;
+    bottom: 5%;
+    width: 20%;
+}
+button {
+    background-color: red;
+    border: 2px solid black;
+    outline: none;
+    width: 100%;
+    margin: 1vmin;
+    font-size: x-large;
+    color: white;
+    border-radius: 1vmin;
+    padding: 10px;
+    box-shadow: 0 0 1vmin black;
+    cursor: pointer;
+    transition: 300ms;
+}
+button:hover {
+    border-color: red;
+    background-color: white;
+    color: red;
+    transform: scale(1.05);
+}
+button:active {
+    transform: scale(1);
 }
